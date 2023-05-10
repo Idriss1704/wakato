@@ -2,21 +2,21 @@ package net.ganemtore.wakato.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-public class employee {
+public class Team {
     @Id
     private Long id;
+    private String name;
+    private String description;
     @OneToOne
-    private User user;
-    @ManyToOne
-    private Organization organization;
-    @ManyToOne
-    private Role role;
+    private Employee leader;
+    @OneToMany
+    private List<Employee> members;
 
     public void setId(Long id) {
         this.id = id;
